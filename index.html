@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Resultado | REAL</title>
+    
+    <meta name="theme-color" content="#111111">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'SEU_PIXEL_ID');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+    <style>
+        /* --- DESIGN SYSTEM - RESULTADO REAL */
+        :root {
+            --primary-bg: #111111;
+            --surface-dark: #1F1F1F;
+            --surface-light: #2A2A2A;
+            --accent-pink: #FF0055;
+            --text-white: #FFFFFF;
+            --text-gray: #B0B0B0;
+            --anim-speed: 0.3s;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            -webkit-tap-highlight-color: transparent; 
+            outline: none;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-white);
+            min-height: 100vh;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* --- BACKGROUND --- */
+        .bg-system {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2; background: var(--primary-bg);
+        }
+
+        .bg-system.use-image {
+            background-image: url('logo.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: grayscale(100%);
+        }
+
+        .bg-system.use-image video { display: none; }
+
+        #video-viewport {
+            position: absolute; 
+            top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            width: auto; height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: grayscale(100%) brightness(0.4) contrast(1.3);
+        }
+
+        .overlay-mask {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(17,17,17,0.85) 0%, #111111 100%);
+            z-index: -1;
+        }
+
+        /* --- APP WRAPPER --- */
+        .app-container {
+            width: 100%; 
+            max-width: 460px;
+            padding: 60px 24px 20px; /* Ajustado padding inferior */
+            display: flex; flex-direction: column; align-items: center;
+            z-index: 10;
+            min-height: 100vh; /* Garante altura total */
+        }
+
+        /* --- HEADER SECTION --- */
+        .header-section { 
+            text-align: center; 
+            margin-bottom: 35px; 
+            display: flex; flex-direction: column; align-items: center;
+            width: 100%;
+        }
+        
+        .avatar-frame {
+            width: 110px; 
+            height: 110px; 
+            margin: 0 auto 20px;
+            border-radius: 50%; 
+            padding: 3px; 
+            background: var(--primary-bg);
+            border: 2px solid var(--accent-pink);
+            animation: float 4s ease-in-out infinite;
+        }
+        .avatar-frame img { 
+            width: 100%; height: 100%; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            display: block;
+            filter: grayscale(20%);
+        }
+
+        h1 { 
+            font-size: 1.8rem; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px; 
+            margin-bottom: 10px; 
+            line-height: 1.1;
+        }
+        
+        .main-badge {
+            display: inline-flex; align-items: center;
+            font-size: 0.75rem; 
+            font-weight: 700;
+            text-transform: uppercase; 
+            letter-spacing: 1.5px;
+            color: var(--text-white);
+            background: var(--accent-pink);
+            padding: 6px 16px; 
+            border-radius: 4px;
+        }
+
+        /* REDES SOCIAIS */
+        .social-row {
+            display: flex; justify-content: center; gap: 10px; 
+            margin-top: 25px;
+            animation: fadeIn var(--anim-speed) ease forwards; 
+            opacity: 0; animation-delay: 0.2s;
+        }
+        .social-icon {
+            width: 44px; height: 44px; 
+            border-radius: 8px;
+            background: var(--surface-dark); 
+            color: var(--text-white); 
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none; 
+            font-size: 1.2rem; 
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+        .social-icon:hover { 
+            background: var(--text-white);
+            color: var(--primary-bg);
+            border-color: var(--text-white);
+            transform: translateY(-3px);
+        }
+
+        /* BOTÃO COMPARTILHAR */
+        .btn-share-profile {
+            margin-top: 25px;
+            background: transparent;
+            color: var(--text-gray);
+            border: 1px solid var(--surface-light);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex; align-items: center; gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            opacity: 0;
+            animation: fadeIn var(--anim-speed) ease forwards;
+            animation-delay: 0.3s;
+        }
+        
+        /* EFEITO DE CLIQUE NO COMPARTILHAR */
+        .btn-share-profile:active {
+            transform: scale(0.95);
+            background: rgba(37, 211, 102, 0.1); /* Verde WhatsApp sutil */
+            border-color: #25D366;
+            color: #25D366;
+        }
+        .btn-share-profile:hover {
+            border-color: #25D366; /* Verde WhatsApp no hover para indicar função */
+            color: #25D366;
+        }
+
+        /* --- GRID DE LINKS --- */
+        .links-grid { 
+            width: 100%; 
+            display: flex; flex-direction: column; 
+            gap: 12px; 
+            margin-top: 10px;
+            flex-grow: 1; /* Empurra o footer para baixo */
+        }
+
+        /* BOTÃO HERO (WHATSAPP) */
+        .btn-hero {
+            position: relative;
+            background: var(--accent-pink);
+            color: white !important;
+            padding: 20px 24px; 
+            border-radius: 8px;
+            text-decoration: none; 
+            font-weight: 800;
+            text-transform: uppercase;
+            display: flex; align-items: center; justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(255, 0, 85, 0.4);
+            transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            opacity: 0; 
+            animation: slideUp var(--anim-speed) ease forwards; 
+            animation-delay: 0.4s;
+            border: 2px solid var(--accent-pink);
+        }
+        
+        .btn-hero:hover { 
+            background: white; 
+            color: var(--accent-pink) !important;
+            transform: translateX(10px); /* Move levemente no hover */
+        }
+        
+        /* ANIMAÇÃO DE CLIQUE ESPECÍFICA PARA O HERO (MOVE PARA DIREITA) */
+        .btn-hero:active {
+            /* Move para a direita significativamente ao clicar */
+            transform: translateX(20px) scale(0.98);
+            background: white;
+            color: var(--accent-pink) !important;
+            transition: 0.1s;
+        }
+
+        .btn-hero:hover .status-pill, .btn-hero:active .status-pill { 
+            background: rgba(255, 0, 85, 0.1); color: var(--accent-pink); 
+        }
+
+        .status-pill {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 0.65rem; 
+            background: rgba(0,0,0,0.3);
+            padding: 4px 10px; 
+            border-radius: 4px; 
+            margin-top: 4px;
+            font-weight: 600;
+            text-transform: none;
+            transition: 0.3s;
+        }
+        .live-dot { 
+            width: 7px; height: 7px; 
+            background: #00FF85; 
+            border-radius: 50%; 
+            box-shadow: 0 0 5px #00FF85;
+            animation: pulse 2s infinite; 
+        }
+
+        /* --- BOTÕES PADRÃO (COM ANIMAÇÃO CORRIGIDA) --- */
+        .btn-standard {
+            background: var(--surface-dark);
+            color: var(--text-white) !important;
+            padding: 18px 24px; 
+            border-radius: 8px;
+            text-decoration: none; 
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            display: flex; align-items: center; justify-content: space-between;
+            /* Suavidade da transição */
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            opacity: 0; 
+            animation: slideUp var(--anim-speed) ease forwards;
+            border: 2px solid transparent;
+        }
+        .btn-standard:nth-child(2) { animation-delay: 0.5s; }
+        .btn-standard:nth-child(3) { animation-delay: 0.6s; }
+        .btn-standard:nth-child(4) { animation-delay: 0.7s; }
+
+        .btn-standard .link-icon-left { color: var(--text-gray); transition: 0.2s; }
+
+        /* ESTADO: HOVER (Passar o Mouse) */
+        .btn-standard:hover { 
+            background: var(--accent-pink); 
+            border-color: var(--accent-pink);
+            /* Move um pouco para a direita */
+            transform: translateX(10px); 
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.3);
+        }
+        
+        /* ESTADO: ACTIVE (CLICAR) - ANIMAÇÃO PARA A DIREITA */
+        .btn-standard:active {
+            background: var(--accent-pink); 
+            /* Move MUITO para a direita conforme solicitado */
+            transform: translateX(25px) scale(0.98); 
+            transition: 0.1s; /* Transição rápida para feedback */
+        }
+        
+        /* Garante cor branca no hover e active */
+        .btn-standard:hover *, .btn-standard:active * {
+            color: white !important;
+        }
+
+        .link-main { 
+            display: flex; align-items: center; gap: 16px; 
+        }
+
+        /* --- FOOTER ESTRUTURADO --- */
+        .footer-minimal {
+            width: 100%; 
+            text-align: center; 
+            margin-top: 50px; /* Distância dos botões */
+            padding-top: 30px;
+            padding-bottom: 20px;
+            
+            /* LINHA ESTRUTURADA SOLICITADA */
+            border-top: 1px solid rgba(255, 255, 255, 0.15); 
+        }
+        
+        .footer-minimal h2 { 
+            font-weight: 800; font-size: 0.9rem; margin-bottom: 8px; 
+            text-transform: uppercase; letter-spacing: 1px; color: var(--text-white);
+        }
+        .footer-minimal p { 
+            font-size: 0.7rem; font-weight: 500; color: var(--text-gray); 
+        }
+
+        /* --- KEYFRAMES --- */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { 
+            from { opacity: 0; transform: translateY(20px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        @keyframes float { 
+            0%, 100% { transform: translateY(0); } 
+            50% { transform: translateY(-10px); } 
+        }
+        @keyframes pulse { 
+            0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } 
+        }
+
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <div class="bg-system"> 
+        <video id="video-viewport" autoplay muted loop playsinline preload="auto">
+            <source src="video.mp4" type="video/mp4">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-blue-liquid-bubbles-background-4122-large.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="overlay-mask"></div>
+
+    <div class="app-container">
+        
+        <header class="header-section">
+            <div class="avatar-frame">
+                <img src="logo.png" alt="Logo RESULTADO REAL">
+            </div>
+            <h1>ResultadoREAL</h1>
+            <div class="main-badge">Performance & Saúde</div>
+
+            <div class="social-row">
+                <a href="https://tadeus-ia.github.io/Emagrecimento-Real/" target="_blank" rel="noopener noreferrer" class="social-icon" onclick="trackEvent('Instagram_Click')"><i class="fab fa-instagram"></i></a>
+                
+                <a href="https://wa.me/5511916072188" target="_blank" rel="noopener noreferrer" class="social-icon" onclick="trackEvent('WhatsApp_Header_Click')"><i class="fab fa-whatsapp"></i></a>
+                
+            </div>
+
+            <button id="share-btn" class="btn-share-profile" onclick="triggerShareButton()">
+                <i class="fab fa-whatsapp"></i> <span>Compartilhar no WhatsApp</span>
+            </button>
+        </header>
+
+        <nav class="links-grid">
+            
+            <a href="https://wa.me/5511916072188" target="_blank" rel="noopener noreferrer" class="btn-hero" onclick="trackEvent('WhatsApp_Main_CTA')">
+                <div class="link-main">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <span style="display: block; line-height: 1.1;">Falar no WhatsApp</span>
+                        <div class="status-pill">
+                            <div class="live-dot"></div> Online Agora
+                        </div>
+                    </div>
+                </div>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+
+            <a href="https://tadeus-ia.github.io/Emagrecimento-Real/" target="_blank" rel="noopener noreferrer" class="btn-standard" onclick="trackEvent('Cursos_Premium_Click')">
+                <div class="link-main">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Site Oficial</span>
+                </div>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+
+            <a href="https://kiwify.app/bNPbUkl?afid=fagxrsl6" target="_blank" rel="noopener noreferrer" class="btn-standard" onclick="trackEvent('Aulas_Gratuitas_Click')">
+                <div class="link-main">
+                   <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Marmita Fitness</span>
+                </div>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+            
+        
+        
+
+        </nav>
+
+        <footer class="footer-minimal">
+            <h2>RESULTADOREAL</h2>
+            <p>© 2026 RESULTADO REAL. Todos os direitos reservados.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        /* --- CONFIGURAÇÕES DE INTEGRAÇÃO (BACKEND) --- */
+        const INTEGRATION_CONFIG = {
+            N8N_WEBHOOK_URL: 'https://seu-n8n.webhook.com/id-do-fluxo',
+            APPS_SCRIPT_URL: 'https://script.google.com/macros/s/SEU_ID_SCRIPT/exec',
+            DEBUG_MODE: true
+        };
+
+        async function trackEvent(eventName, extraData = {}) {
+            if(INTEGRATION_CONFIG.DEBUG_MODE) console.log(`[LOG] Evento: ${eventName}`);
+
+            const eventPayload = {
+                event: eventName,
+                timestamp: new Date().toISOString(),
+                location: window.location.href,
+                platform: navigator.platform,
+                ...extraData
+            };
+
+            if (window.dataLayer) {
+                window.dataLayer.push({
+                    'event': 'lp_interaction',
+                    'action': eventName,
+                    'details': eventPayload
+                });
+            }
+
+            if (typeof fbq === 'function') {
+                fbq('trackCustom', eventName, eventPayload);
+            }
+
+            Promise.allSettled([
+                fetch(INTEGRATION_CONFIG.N8N_WEBHOOK_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(eventPayload)
+                }),
+                fetch(INTEGRATION_CONFIG.APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(eventPayload)
+                })
+            ]);
+        }
+
+        /* --- COMPARTILHAMENTO DIRETO NO WHATSAPP --- */
+        function triggerShareButton() {
+            trackEvent('Share_Button_Click_WhatsApp');
+            
+            const shareText = 'Confira este perfil focado em Performance e Saúde!';
+            const shareUrl = window.location.href;
+
+            // Cria o link do WhatsApp com a mensagem
+            const message = encodeURIComponent(`${shareText} ${shareUrl}`);
+            const waLink = `https://wa.me/?text=${message}`;
+            
+            // Abre diretamente o WhatsApp (web ou app)
+            window.open(waLink, '_blank');
+        }
+
+        document.addEventListener('touchstart', () => {
+            const videoElement = document.getElementById('video-viewport');
+            if(videoElement) videoElement.play();
+        }, { once: true });
+
+        console.log("Escola de Clínica v7.1 | Direct WA Share & Slide Animations");
+    </script>
+
+</body>
+</html>
